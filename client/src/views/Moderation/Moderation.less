@@ -1,21 +1,23 @@
-@import '../../../assets/style.less';
+@import '../../assets/style.less';
+
 
 #moderation-wrapper {
-    margin: 12vh auto 8vh auto;
+    margin: 4vh auto 4vh auto;
     display: inline-block;
+  
   }
 
 #moderation-title {
     background-color: #colors[secondary];
     border-radius: 80px;
-    width: 80%;
+    width: 25%;
     min-height: 8%;
     color: #colors[text-secondary];
     font-size: 1.4em;
     font-weight: bold;
     position: relative;
-    top: 25px;
-    left: -40px;
+    top: 20px;
+    left: 20px;
     line-height: 50px;
     text-align: center;
   }
@@ -53,3 +55,92 @@
       }
     }
   }
+
+  .approveButton{
+    margin: auto;
+    background-color:lightgreen;
+    text-align: center;
+    width: 12vh;
+    font-weight: bold;
+    border-color: darkgreen;
+    padding:0.5vw;
+  }
+
+  .rejectButton{
+    margin: auto;
+    background-color:lightcoral;
+    width: 12vh;
+    border-color: darkred;
+    font-weight: bold;
+    text-align: center;
+    padding:0.5vw;
+  }
+
+  .ReportBox{
+    margin: auto auto auto auto;
+    background-color: #colors[secondary];
+    font-weight: bold;
+    padding: 0.5vw;
+    
+    border-radius: 10px;
+    width: fit-content;
+    position: float;
+
+
+   
+  }
+
+  .ContentBox{
+    margin: 1vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: left;
+    background: #colors[senary];
+    padding: 0.5vw;
+    width: 80vw;
+    position: float;
+    text-align: center;
+    border-radius: 10px;
+    border-color: #colors[secondary];
+    
+  }
+
+  .ItemBox{
+    margin: 2vh;
+    padding: 0.5vw;
+    border-radius: 10px;
+    width: 10vw;
+    height: 10vw;
+    position: float;
+    left: 10px;
+    justify-content: left;
+    text-align: left;
+
+    background: #colors[tertiary];
+    color: #colors[text-primary];
+    border: none;
+    border-color: #colors[secondary];
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.377);
+    
+  }
+
+  .ItemText
+  {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .ReportGrid{
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, minmax(11vw, 1fr));
+    max-width: 1040px;
+    margin: auto;
+    padding: 0;
+    gap: 1rem;
+    list-style: none;
+    counter-reset: doc;
+  }
+
+  
