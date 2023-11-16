@@ -790,6 +790,9 @@
           "last_logged_in": {
             "type": "string",
             "format": "date-time"
+          },
+          "Muted": {
+            "type": "boolean"
           }
         }
       },
@@ -820,6 +823,9 @@
           "last_logged_in": {
             "type": "string",
             "format": "date-time"
+          },
+          "Muted": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"
