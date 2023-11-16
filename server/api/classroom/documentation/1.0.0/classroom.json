@@ -817,6 +817,12 @@
                   "type": "string"
                 }
               },
+              "contents": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1015,6 +1021,43 @@
                 }
               }
             }
+          },
+          "contents": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "moderated": {
+                  "type": "boolean"
+                },
+                "flags": {
+                  "type": "integer"
+                },
+                "classroom": {
+                  "type": "string"
+                },
+                "school": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1060,6 +1103,12 @@
             }
           },
           "authorized_workspaces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contents": {
             "type": "array",
             "items": {
               "type": "string"
