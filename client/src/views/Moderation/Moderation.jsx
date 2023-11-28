@@ -9,9 +9,9 @@ class ModerationPage extends Component {
         this.state = {
             contentData: [
                 { id: 1, title: 'Content 1', description: 'This is the first content item', 
-                reports: ["User 1 - Inappropriate content", "User 2 - Plagiarism", "User 3 - Hate speech", "User 4 - Inappropriate content", "User 5 - Plagiarism", "User 6 - Hate speech", "User 7 - Inappropriate content"], flags: 7},
+                reports: ["User 1 - Inappropriate content", "User 2 - Plagiarism", "User 3 - Hate speech", "User 4 - Inappropriate content", "User 5 - Plagiarism", "User 6 - Hate speech", "User 7 - Inappropriate content","User 8 - Inappropriate content", "User 9 - Plagiarism", "User 10 - Hate speech", "User 11 - Inappropriate content",  ], flags: 11},
                 { id: 2, title: 'Content 2', description: 'This is the second content item', 
-                reports: ["User 1 - Inappropriate content", "User 2 - Plagiarism", "User 3 - Hate speech", "User 4 - Inappropriate content", "User 5 - Plagiarism", "User 6 - Hate speech", "User 7 - Inappropriate content", ], flags: 7 },
+                reports: ["User 1 - Inappropriate content", "User 2 - Plagiarism", "User 3 - Hate speech", "User 4 - Inappropriate content", "User 5 - Plagiarism", "User 6 - Hate speech", "User 7 - Inappropriate content","User 8 - Inappropriate content", "User 9 - Plagiarism", "User 10 - Hate speech", "User 11 - Inappropriate content",  ], flags: 11},
                 { id: 3, title: 'Content 3', description: 'This is the third content item', 
                 reports: ["User 1 - Inappropriate content", "User 2 - Plagiarism", "User 3 - Hate speech", "User 4 - Inappropriate content", "User 5 - Plagiarism", "User 6 - Hate speech", "User 7 - Inappropriate content", ], flags: 7 },
                 { id: 4, title: 'Content 4', description: 'Report Details',
@@ -140,6 +140,7 @@ class ModerationPage extends Component {
 
                         <button onClick={() => this.handleModerationAction('approve')} class = "approveButton" >Approve Post</button>
                         <button onClick={() => this.handleModerationAction('reject')} class = "rejectButton" >Reject Post</button>
+                        
 
                     </div>
                     </div>
