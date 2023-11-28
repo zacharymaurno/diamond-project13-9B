@@ -1,5 +1,6 @@
  import React, { Component, useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
+import Thumbnail from '../../assets/casmm_logo.png'
 import './Moderation.less';
 import {getClassroom, getMentor } from '../../Utils/requests';
 
@@ -104,7 +105,8 @@ class ModerationPage extends Component {
                                 <div class = "ItemText">
                                 {content.title}
                                 </div>
-                            
+
+                                <img src = {Thumbnail} class = "postThumbnail" alt ="Thumbnail" />
                         
                                 <div class = "FlagDisplay">
                                 {content.flags} Flags
