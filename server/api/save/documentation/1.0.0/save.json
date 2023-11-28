@@ -678,6 +678,12 @@
               "Muted": {
                 "type": "boolean"
               },
+              "contents": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },

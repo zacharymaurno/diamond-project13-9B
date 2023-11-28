@@ -27,6 +27,13 @@
     "school": {
       "model": "school",
       "via": "contents"
+    },
+    "student": {
+      "model": "student",
+      "via": "contents"
+    },
+    "ReportReason": {
+      "type": "string"
     }
   }
 }

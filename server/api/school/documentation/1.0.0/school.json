@@ -661,6 +661,12 @@
                 "school": {
                   "type": "string"
                 },
+                "student": {
+                  "type": "string"
+                },
+                "ReportReason": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },

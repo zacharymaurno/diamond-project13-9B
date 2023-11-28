@@ -77,7 +77,8 @@ export default function ModerationPageHistory() {
                     <div>
                         {classroomDetails.data.contents.map((content) => (
                             content.moderated === true &&
-                            <div key ={content.moderated}>{content.description}</div> 
+                            <div key ={content.moderated}>{content.description}
+                            Reason for report: {content.ReportReason} </div> 
                         ))}
                         {classroomDetails.data.contents.map((content) => (
                             content.moderated === false &&

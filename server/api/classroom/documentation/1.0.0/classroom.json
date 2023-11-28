@@ -952,6 +952,12 @@
                 "Muted": {
                   "type": "boolean"
                 },
+                "contents": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1048,6 +1054,12 @@
                   "type": "string"
                 },
                 "school": {
+                  "type": "string"
+                },
+                "student": {
+                  "type": "string"
+                },
+                "ReportReason": {
                   "type": "string"
                 },
                 "published_at": {

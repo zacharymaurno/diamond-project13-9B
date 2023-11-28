@@ -37,6 +37,10 @@
     },
     "Muted": {
       "type": "boolean"
+    },
+    "contents": {
+      "via": "student",
+      "collection": "content"
     }
   }
 }
