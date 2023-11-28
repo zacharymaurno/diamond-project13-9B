@@ -60,34 +60,58 @@
     margin: auto;
     background-color:lightgreen;
     text-align: center;
-    width: 12vh;
+    width: 10vw;
     font-weight: bold;
     border-color: darkgreen;
     padding:0.5vw;
   }
 
+  .approveButton:hover{
+    transform: scale(1.05);
+  }
+
   .rejectButton{
     margin: auto;
     background-color:lightcoral;
-    width: 12vh;
+    width: 10vw;
     border-color: darkred;
     font-weight: bold;
     text-align: center;
     padding:0.5vw;
   }
 
+  .rejectButton:hover{
+    transform: scale(1.05);
+  }
+
   .ReportBox{
     margin: auto auto auto auto;
-    background-color: #colors[secondary];
+    background: #colors[senary];
     font-weight: bold;
+    font-size: 1em;
     padding: 0.5vw;
     
     border-radius: 10px;
-    width: fit-content;
-    position: float;
+    border-color: #colors[senary];
+    width: 35vw;
+    min-height: 35vw;
+    position: fixed;
+    top:15vh;
+    left:35vw;
 
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.377); 
    
+  }
+
+  .overlay{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(40,40,40,0.8);
   }
 
   .ContentBox{
@@ -111,7 +135,7 @@
     border-radius: 10px;
     width: 10vw;
     height: 10vw;
-    position: float;
+    position: relative;
     left: 10px;
     justify-content: left;
     text-align: left;
@@ -125,11 +149,39 @@
     
   }
 
+  .ItemBox:hover{
+    transform: scale(1.05);
+  }
+
   .ItemText
   {
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
+  }
+
+  .FlagDisplay
+  {
+    position: absolute;
+    color: darkred;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+    bottom:0;
+   
+  }
+
+  .FlagDisplay2
+  {
+    position: absolute;
+    color: darkred;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: left;
+    top:0.5vh;
+    left:0.75vw;
+
+   
   }
 
   .ReportGrid{
@@ -141,6 +193,15 @@
     gap: 1rem;
     list-style: none;
     counter-reset: doc;
+  }
+
+  .reportsDisplay{
+    left: 1vw;
+    position: relative;
+    text-align: left;
+    font-size:1.2em;
+    min-height:100%;
+  
   }
 
   
