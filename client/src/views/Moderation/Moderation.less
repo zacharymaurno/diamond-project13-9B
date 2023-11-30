@@ -4,19 +4,19 @@
 #moderation-wrapper {
     margin: 4vh auto 4vh auto;
     display: inline-block;
-  
+    
   }
 
 #moderation-title {
     background-color: #colors[secondary];
     border-radius: 80px;
     width: 25%;
-    min-height: 8%;
+    min-height: 10%;
     color: #colors[text-secondary];
-    font-size: 1.4em;
+    font-size: 1.7em;
     font-weight: bold;
     position: relative;
-    top: 20px;
+    top: 27px;
     left: 20px;
     line-height: 50px;
     text-align: center;
@@ -57,13 +57,16 @@
   }
 
   .approveButton{
-    margin: auto;
+    color: black;
+    margin: 0.5vw;
     background-color:lightgreen;
     text-align: center;
     width: 10vw;
     font-weight: bold;
     border-color: darkgreen;
     padding:0.5vw;
+    border-radius: 5px;
+    
   }
 
   .approveButton:hover{
@@ -71,13 +74,15 @@
   }
 
   .rejectButton{
-    margin: auto;
+    color: black;
+    margin: 0.5vw;
     background-color:lightcoral;
     width: 10vw;
     border-color: darkred;
     font-weight: bold;
     text-align: center;
     padding:0.5vw;
+    border-radius: 5px;
   }
 
   .rejectButton:hover{
@@ -120,14 +125,15 @@
   }
 
   .ContentBox{
+    top: 1vh;
     margin: 1vw;
     display: grid;
     grid-template-columns: auto auto auto;
-    justify-content: left;
+    justify-content: center;
     background: #colors[senary];
     padding: 0.5vw;
-    width: 80vw;
-    position: float;
+    width: 78vw;
+    position: relative;
     text-align: center;
     border-radius: 10px;
     border-color: #colors[secondary];
@@ -141,7 +147,7 @@
     width: 10vw;
     height: 10vw;
     position: relative;
-    left: 10px;
+    
     justify-content: left;
     text-align: left;
 
@@ -192,12 +198,12 @@
   .ReportGrid{
     display: inline-grid;
     grid-template-columns: repeat(auto-fill, minmax(11vw, 1fr));
-    max-width: 1040px;
+    max-width: 75vw;
     margin: auto;
     padding: 0;
     gap: 1rem;
     list-style: none;
-    counter-reset: doc;
+    
   }
 
   .reportsDisplay{
@@ -222,4 +228,111 @@
   }
 
   
+  .ClassroomBox{
+    margin: 1vw;
+    //display: grid;
+    //grid-template-columns: auto auto auto;
+   
+    background: #add8e6;
+    padding: 0.5vw;
+   
+    width: 78vw;
+    min-height: 30vh;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-color: #colors[secondary];
+
+   
+    color: #colors[text-primary];
+    
+    
+  }
+
+  .ClassDropdown{
+    background-color: #colors[secondary];
+    border-radius: 20px;
+    width: 26vw;
+    min-height: 8%;
+    color: #colors[text-secondary];
+    font-size: 1.3em;
+    font-weight: bold;
+
+    position: absolute;
+    line-height: 40px;
+    top: -15.5vh;
+    right: -7vw;
+    text-align: center;
+  }
+
+  .Selection
+  {
+    border-width: 2px;
+    border-radius: 5px;
+    width:fit-content;
+    font-weight: bold;
+    background-color: #colors[secondary];
+    color: #colors[text-secondary];
+    position:relative;
+    bottom:1vh;
+    border-color: white;
+  }
+
+  .RosterTitle
+  {
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+
+  .StudentGrid{
+    position:relative;
+    top:3vh;
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
+    max-width: 78vw;
+    margin: auto;
+    padding: 0;
+    gap: 1rem;
+    list-style: none;
+   
+  }
   
+  .StudentBox{
+    margin: 2vh;
+    padding: 0.5vw;
+    border-radius: 10px;
+    width: 8vw;
+    height: 12vh;
+    position: relative;
+   
+    justify-content: center;
+    text-align: center;
+
+    font-weight: bold;
+    background: #colors[tertiary];
+    color: #colors[text-primary];
+    border: none;
+    border-color: #colors[secondary];
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.377);
+    
+  }
+  
+  .MuteButton{
+  
+    margin: 0.1vh;
+    width: 4vw;
+    height: 5vh;
+    
+    font-weight: bold;
+    text-align: center;
+    padding:0vw;
+    border-radius: 5px;
+    border-color: #colors[text-primary];
+    border-width: 1px;  
+  }
+
+  .MuteButton:hover{
+    transform: scale(1.05);
+  }
