@@ -48,52 +48,89 @@ export default function ModerationPageHistory() {
         return (
             <div className='container nav-padding'>
                 <NavBar />
-                <div id='main-header'> Moderation History</div>
+                <div id='moderation-title'>Moderation History</div> 
+                <div id='moderation-wrapper'></div>
                 
-            <label>Select Classroom:</label>
-            <select
+            <div class="ClassroomBox">  
+                <div class="ClassDropdown">Select Classroom:
+                    <select class="Selection"
 
-                value={selectedOption}
-                onChange={(e) => {
-                    const selectedId = e.target.value;
-                    setSelectedOption(selectedId);
-                    handleClassroomChange(selectedId);
-                    }}
-            >
-                {console.log(selectedOption)};
-                <option value="">Select an option</option>
-                {data.map((classroom, index) => (
-                    <option key={index} value={classroom.id}>
-                        {classroom.name}
-                    </option>
-                ))}
-            </select>
+                        value={selectedOption}
+                        onChange={(e) => {
+                            const selectedId = e.target.value;
+                            setSelectedOption(selectedId);
+                            handleClassroomChange(selectedId);
+                            }}
+                    >
+                        {console.log(selectedOption)};
+                        <option value="">Select an option</option>
+                        {data.map((classroom, index) => (
+                            <option key={index} value={classroom.id}>
+                                {classroom.name}
+                            </option>
+                        ))}
+                    </select>
+            </div>
+            
+           
            
             {classroomDetails !== null && (
-                <div id='classrooms-container'>
-                    <p>Content:</p>
+                <div>
                     {(classroomDetails.data) ? (
-
+                        
                     <div>
-                        {classroomDetails.data.contents.map((content) => (
-                            content.moderated === true &&
-                            <div key ={content.moderated}>{content.description}
-                            Reason for report: {content.ReportReason} </div> 
-                        ))}
-                        {classroomDetails.data.contents.map((content) => (
-                            content.moderated === false &&
-                            <div key ={content.id}>No history of reported content in this classroom</div> 
-                        ))}
-                        {console.log(classroomDetails.data.contents)}
+                        {console.log(classroomDetails)}
+                        {classroomDetails["data"].contents && classroomDetails["data"].contents.length > 0 ? (
+                        <ul>                                                        
+                            {classroomDetails["data"].contents.filter(content => content.moderated === true).map((content) => (
+                                <li key = {content.id}>
+                                    <h3>Content Description: {content.description}</h3>
+                                    <div>Status: Moderated</div>
+                                    <div>Flags: {content.flags}</div>
+                                    <div>Reason for Report: {content.ReportReason}</div>
+                                    <div>Posted by 
+                                            {classroomDetails.data.students.map((student) => (
+                                                <>
+                                                    {student.id === content.student? <> {student.name}</> : null}
+                                                </>
+                                            ))}
+                                    </div>
+                                    {console.log(content)}
+                                </li>
+                            ))}
+                            {classroomDetails["data"].contents.filter(content => content.moderated === false).map((content) => (
+                                <li key = {content.id}>
+                                    <h3>Content Description: {content.description}</h3>
+                                    <div>Status: Not Moderated</div>
+                                    <div>Flags: {content.flags}</div>
+                                    <div>Reason for Report: {content.ReportReason}</div>
+                                    <div>Posted by 
+                                            {classroomDetails.data.students.map((student) => (
+                                                <>
+                                                    {student.id === content.student? <> {student.name}</> : null}
+                                                </>
+                                            ))}
+                                    </div>
+                                </li>
+                            ))}
+                            
+                        </ul>
+                    ) : (
+                        <p>No Gallery content found for this classroom.</p>
+                    )}
+                        
+                        
                     </div>
                         ) : (
-                            <p>No history of reported content in this classroom</p>
+                            <div>
+                            <p>Please select a classroom</p>
+                            </div>
                         )}
                 </div>
             )}
                 
             </div>
-            
+            </div>
         ); 
 }
 
