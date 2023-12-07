@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import MentorSubHeader from '../../components/MentorSubHeader/MentorSubHeader';
-import './Moderation.less';
+import './ModerationHistory.less';
 import {getClassroom, getMentor } from '../../Utils/requests';
 
 export default function ModerationPageHistory() {
@@ -52,9 +52,9 @@ export default function ModerationPageHistory() {
                 <div id='moderation-title'>Moderation History</div> 
                 <div id='moderation-wrapper'></div>
                 
-            <div class="ClassroomBox">  
-                <div class="ClassDropdown">Select Classroom:
-                    <select class="Selection"
+            <div id="classroom-box">  
+                <div id="class-dropdown">Select Classroom:
+                    <select id='Selection1'
 
                         value={selectedOption}
                         onChange={(e) => {
@@ -84,7 +84,7 @@ export default function ModerationPageHistory() {
                         {classroomDetails["data"].contents && classroomDetails["data"].contents.length > 0 ? (
                         <ul>                                                        
                             {classroomDetails["data"].contents.filter(content => content.moderated === true).map((content) => (
-                                <li key = {content.id}>
+                                <li id ='content-box' key = {content.id}>
                                     <h3>Content Description: {content.description}</h3>
                                     <div>Status: Moderated</div>
                                     <div>Flags: {content.flags}</div>
@@ -100,8 +100,9 @@ export default function ModerationPageHistory() {
                                 </li>
                             ))}
                             {classroomDetails["data"].contents.filter(content => content.moderated === false).map((content) => (
-                                <li key = {content.id}>
+                                <li id = 'content-box' key = {content.id}>
                                     <h3>Content Description: {content.description}</h3>
+                                    <div>
                                     <div>Status: Not Moderated</div>
                                     <div>Flags: {content.flags}</div>
                                     <div>Reason for Report: {content.ReportReason}</div>
@@ -111,7 +112,7 @@ export default function ModerationPageHistory() {
                                                     {student.id === content.student? <> {student.name}</> : null}
                                                 </>
                                             ))}
-                                    </div>
+                                    </div></div>
                                 </li>
                             ))}
                             
