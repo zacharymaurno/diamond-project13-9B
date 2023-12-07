@@ -52,6 +52,7 @@ export default function ModerationPageHistory() {
                 <div id='moderation-title'>Moderation History</div> 
                 <div id='moderation-wrapper'></div>
                 
+            {/*Dropdown allowing to chose which classroom to view*/}    
             <div id="classroom-box">  
                 <div id="class-dropdown">Select Classroom:
                     <select id='Selection1'
@@ -74,7 +75,7 @@ export default function ModerationPageHistory() {
             </div>
             
            
-           
+           {/*Checks that there is classroom data*/ }
             {classroomDetails !== null && (
                 <div>
                     {(classroomDetails.data) ? (
@@ -83,6 +84,8 @@ export default function ModerationPageHistory() {
                         {console.log(classroomDetails)}
                         {classroomDetails["data"].contents && classroomDetails["data"].contents.length > 0 ? (
                         <ul>                                                        
+                            {/*Prints out all the content in the classroom stating if it has been moderated or not. Otherwise states there is no content in the classroom.
+                            */}
                             {classroomDetails["data"].contents.filter(content => content.moderated === true).map((content) => (
                                 <li id ='content-box' key = {content.id}>
                                     <h3>Content Description: {content.description}</h3>

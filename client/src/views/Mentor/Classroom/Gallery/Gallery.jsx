@@ -43,6 +43,7 @@ export default function Gallery({ classroomId }) {
             return;
         }
 
+        {/*Increases the flag count for the content that is reported*/}
         const updatedContents = classroomDetails.data.contents.map((content) => {
             if (content.id === contentId) {
                 const flags = content.flags + 1;
@@ -84,6 +85,7 @@ export default function Gallery({ classroomId }) {
 
                     <div id='content-box'>
                       <div>
+                        {/*Displays any content in the classroom that has not been flagged*/}
                          {classroomDetails["data"].contents.filter(content => content.flags === 0).map((content) => (
                                 <li key ={content.id}>Description: {content.description} 
                                 <div>Flag count: {content.flags}</div>
