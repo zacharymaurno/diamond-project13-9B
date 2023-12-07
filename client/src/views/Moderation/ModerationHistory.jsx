@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import MentorSubHeader from '../../components/MentorSubHeader/MentorSubHeader';
+import './Moderation.less';
 import {getClassroom, getMentor } from '../../Utils/requests';
 
 export default function ModerationPageHistory() {
