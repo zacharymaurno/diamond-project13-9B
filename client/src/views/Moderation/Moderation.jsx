@@ -76,30 +76,33 @@ const Dropdown = () => {
     };
 
     const handleModerateContent = async (contentId) => {
-        try{
-            //Fetching the classroom details for obtain the content within gallery page.
-            const updatedDetails = await getClassroom(selectedOption);
-            setClassroomDetails(updatedDetails);
-
-            const contentToModerate = updatedDetails.contents.find(
-                (content) => content.id === contentId
-            );
-
-            //trying to update moderation status
-            if(contentToModerate){
-                const updatedContent = {
-                    ...contentToModerate,
-                    moderated: !contentToModerate.moderated,
-                };
-                //call to the API to update the moderated status
-                //updateContent(contentId, updatedContent);
+        try {
+            if (!classroomDetails || !classroomDetails.data || !classroomDetails.data.contents) {
+                return;
             }
-        }
 
-        catch(error){
-            console.error('Error moderating content:', error);
+            //iterator to find the correct content via its IDs to toggle the moderated boolean, and if it's been set to null, which it shouldn't be, but if it is then set it to false before attempting to toggle.
+            const updatedContents = classroomDetails.data.contents.map((content) => {
+                if (content.id === contentId) {
+                    const moderated = content.moderated === null ? false : !content.moderated;
+                    const updatedContent = { ...content, moderated };
+
+                    // Update content via the API for Strapi on the backend.
+                    updateContent(contentId, updatedContent)
+                        .then(() => console.log('Content updated successfully'))
+                        .catch((error) => console.log('Failed to update content:', error));
+
+                    return updatedContent;
+                }
+                return content;
+            });
+
+            // Update the state with the new content data for the button refresh.
+            setClassroomDetails({ data: { ...classroomDetails.data, contents: updatedContents } });
+        } catch (error) {
+            console.error('Error updating content:', error);
         }
-    }
+    };
 
     return (
         <div class="ClassroomBox">
@@ -160,13 +163,12 @@ const Dropdown = () => {
                             <p>No students found for this classroom.</p>
                         )}
 
-                    {
-                    /*
+                    
                     <h4>Gallery Contents:</h4>
-                    {console.log(classroomDetails.contents)};
-                    {classroomDetails.contents && classroomDetails.contents.length > 0 ? (
-                        <u1>
-                            {classroomDetails.contents.map((content) => (
+                    {console.log(classroomDetails.contents)}
+                    {classroomDetails["data"].contents && classroomDetails["data"].contents.length > 0 ? (
+                        <ul>                                                           {/*This integer determines the threshold for content, and next to it says that if the content hasn't been moderated then print it out to the moderation page. Yet if the content is moderated then don't print it out to the moderation page but instead the moderation history as it already been handled.*/}
+                            {classroomDetails["data"].contents.filter(content => content.flags === 1 && content.moderated === false).map((content) => (
                                 <li key = {content.id}>
                                     {content.description} - Flags: {content.flags}
                                     <button onClick={() => handleModerateContent(content.id)}>
@@ -174,12 +176,12 @@ const Dropdown = () => {
                                     </button>
                                 </li>
                             ))}
-                        </u1>
+                        </ul>
                     ) : (
                         <p>No Gallery content found for this classroom.</p>
                     )}
-                    */
-                    }   
+                    
+                     
 
                 </div>
             )}
@@ -252,7 +254,6 @@ class ModerationPage extends Component {
 
     render() {
         const { contentData, selectedContent } = this.state;
-
         
 
         return (

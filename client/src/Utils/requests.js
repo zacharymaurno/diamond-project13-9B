@@ -682,7 +682,7 @@ export const getClassroomWorkspace = async (id) =>
       error: 'Failed to update Contents Moderation',
   });
 
-  export const updateContentFlags = async (id, moderated) =>
+  export const updateContentFlags = async (id, flags) =>
     makeRequest({
         method: PUT,
         path: `${server}/contents/${id}`,

@@ -50,7 +50,8 @@ export default function Gallery({ classroomId }) {
                 const updatedContent = { ...content, flags };
 
                 // Update content via the API for Strapi on the backend.
-                updateContentFlags(contentId, updatedContent)
+                console.log('Updating content:', updatedContent);
+                updateContentFlags(content.id, updatedContent)
                     .then(() => console.log('Content updated successfully'))
                     .catch((error) => console.log('Failed to update content:', error));
 
