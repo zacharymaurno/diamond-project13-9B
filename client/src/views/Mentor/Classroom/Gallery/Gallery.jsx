@@ -3,7 +3,7 @@ import './Gallery.less';
 import MentorSubHeader from '../../../../components/MentorSubHeader/MentorSubHeader';
 import { Form, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { getMentor, getClassroom, updateContentFlags} from '../../../../Utils/requests';
+import { getMentor, getClassroom, updateContentFlags, updateReportReason} from '../../../../Utils/requests';
 
 export default function Gallery({ classroomId }) {
   const [user, setUser] = useState({});
@@ -53,9 +53,15 @@ export default function Gallery({ classroomId }) {
                 console.log('Updating content:', updatedContent);
                 updateContentFlags(content.id, updatedContent)
                     .then(() => console.log('Content updated successfully'))
-                    .catch((error) => console.log('Failed to update content:', error));
+                    .catch((error) => console.log('Failed to update content flags:', error));
 
-                return updatedContent;
+                var ReportReason = prompt("Please enter a reason for reporting this content");
+                const updatedContent2 = { ...updatedContent, ReportReason };
+                updateReportReason(content.id, updatedContent2)
+                    .then(() => console.log('Content updated successfully'))
+                    .catch((error) => console.log('Failed to update content reason:', error));
+                console.log('Updating content:', updatedContent2);
+                return updatedContent2;
             }
             return content;
         });
