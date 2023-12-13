@@ -97,8 +97,8 @@ export default function ModerationPageHistory() {
                             */}
                             {classroomDetails["data"].contents.filter(content => content.moderated === true).map((content) => (
                                 <li id ='content-box' key = {content.id}>
-                                    <h3>Content Description: {content.description}</h3>
-                                    <div>Status: Moderated</div>
+                                    <h3>{content.description}</h3>
+                                    <div class="rejected">Rejected Content</div>
                                     <div>Flags: {content.flags}</div>
                                     <div>Reason for Report: {content.ReportReason}</div>
                                     <div>Posted by 
@@ -113,9 +113,9 @@ export default function ModerationPageHistory() {
                             ))}
                             {classroomDetails["data"].contents.filter(content => content.moderated === false).map((content) => (
                                 <li id = 'content-box' key = {content.id}>
-                                    <h3>Content Description: {content.description}</h3>
+                                    <h3>{content.description}</h3>
                                     <div>
-                                    <div>Status: Not Moderated</div>
+                                    <div class="approved">Approved Content</div>
                                     <div>Flags: {content.flags}</div>
                                     <div>Reason for Report: {content.ReportReason}</div>
                                     <div>Posted by 
