@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Thumbnail from '../../assets/casmm_logo.png'
 import './Moderation.less';
-import {getClassroom, getMentor, updateContent, updateStudent } from '../../Utils/requests';
+import {getClassroom, getMentor, updateStudent, updateContent, updateContentFlags} from '../../Utils/requests';
 import { useNavigate } from 'react-router-dom';
 
 const ModerationPage = () => {
@@ -98,6 +98,38 @@ const ModerationPage = () => {
         } catch (error) {
             console.error('Error updating student:', error);
         }
+    };
+
+    const handleSafeContent = async (contentId) => {
+        try {
+            setClassroomDetails((prevDetails) => {
+                if (!classroomDetails || !classroomDetails.data || !classroomDetails.data.contents) {
+                    return prevDetails;
+                }
+
+                const updatedContents = classroomDetails.data.contents.map((content) => {
+                    let updatedContent = content;
+
+                    if (content.id === contentId) {
+                        const updateContent = { ...content, flags: 0 };
+
+                        updateContentFlags(contentId, updateContent)
+                            .then(() => console.log('Content flag reset successfully'))
+                            .catch((error) => console.log('Failed to reset content flag:', error));
+
+                        updatedContent = updateContent;  // Update the reference of updatedContent
+                    }
+                    return updatedContent;
+                });
+
+                return { data: { ...prevDetails.data, contents: updatedContents } };
+            });
+        } catch (error) {
+            console.error('Error updating content flags:', error);
+        }
+
+        setSelectedContent(null);
+
     };
 
     const handleModerateContent = async (contentId) => {
@@ -246,7 +278,7 @@ const ModerationPage = () => {
                             {selectedContent.ReportReason}
                             </div>
 
-                        <button onClick={() => handleModerateContent(selectedContent.id)} class = "approveButton" >Approve Post</button>
+                        <button onClick={() => handleSafeContent(selectedContent.id)} class = "approveButton" >Approve Post</button>
                         <button onClick={() => handleModerateContent(selectedContent.id)} class = "rejectButton" >Reject Post</button>
                         
 
