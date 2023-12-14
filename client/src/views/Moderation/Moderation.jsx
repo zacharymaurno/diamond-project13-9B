@@ -6,6 +6,7 @@ import {getClassroom, getMentor, updateStudent, updateContent, updateContentFlag
 import { useNavigate } from 'react-router-dom';
 
 const ModerationPage = () => {
+
     const [user, setUser] = useState({});
     const [data, setData] = useState([]);
     const [selectedOption, setSelectedOption] = useState('');
@@ -13,7 +14,6 @@ const ModerationPage = () => {
     const [classIds, setClassIds] = useState({});
 
     const [classroomDetails, setClassroomDetails] = useState({ data: { students: [] } });
-
 
     const [selectedContent, setSelectedContent] = useState(null);
 
@@ -131,7 +131,7 @@ const ModerationPage = () => {
         setSelectedContent(null);
 
     };
-
+  
     const handleModerateContent = async (contentId) => {
         try {
             if (!classroomDetails || !classroomDetails.data || !classroomDetails.data.contents) {
@@ -198,12 +198,11 @@ const ModerationPage = () => {
                 ))}
             </select>
             </div>
-
             
             {classroomDetails !== null && (
                 <div>
-
                     <div class="ClassroomBox">
+
                     <div class="RosterTitle"> Classroom Roster </div>
                  
                     {console.log(classroomDetails)} 
@@ -261,6 +260,7 @@ const ModerationPage = () => {
                     </div>
 
                     {selectedContent && (
+
                     <div>
                     <div class = "overlay"> </div>
                     <div class = "ReportBox">
@@ -270,7 +270,6 @@ const ModerationPage = () => {
                         <div>
                         <div class= "FlagDisplay2">{selectedContent.flags} Flags</div>
                         </div>
-
                         <p>Title: {selectedContent.description}</p>
                         <p>Description: {selectedContent.description}</p>
 
@@ -280,6 +279,7 @@ const ModerationPage = () => {
 
                         <button onClick={() => handleSafeContent(selectedContent.id)} class = "approveButton" >Approve Post</button>
                         <button onClick={() => handleModerateContent(selectedContent.id)} class = "rejectButton" >Reject Post</button>
+
                         
 
                     </div>

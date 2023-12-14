@@ -53,13 +53,12 @@ export default function ModerationPageHistory() {
             <div className='container nav-padding'>
                 <NavBar />
                 <div id='moderation-title'>Moderation History</div> 
-
                 <button class="HistoryToggle" onClick={() => navigate(`/moderation`)}>
                     View Moderation Page
                 </button>
                 
             {/*Dropdown allowing to chose which classroom to view*/}    
-            
+   
                 <div id="class-dropdown">Select Classroom:
                     <select id='Selection1'
 
@@ -79,7 +78,6 @@ export default function ModerationPageHistory() {
                         ))}
                     </select>
             </div>
-            
 
             <div id="classroom-box">  
             <div class="RosterTitle"> Classroom History </div>
